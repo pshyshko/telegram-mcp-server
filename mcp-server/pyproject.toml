@@ -1,0 +1,21 @@
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp[cli]>=2.10.5",
+    "psycopg[binary]>=3.2.9",
+    "psycopg2-binary>=2.9.10",
+    "sqlalchemy>=2.0.41",
+    "python-dotenv>=1.1.1",
+    "mcp[cli]>=1.11.0",
+    "pydantic>=2.11.7",
+    "alembic>=1.16.4",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+]
