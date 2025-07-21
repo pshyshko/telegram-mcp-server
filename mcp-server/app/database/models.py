@@ -26,8 +26,9 @@ class ReservationOrm(Base):
     telegram_username: Mapped[String] = mapped_column(String, nullable=True)
     telegram_link: Mapped[String] = mapped_column(String, nullable=True)
 
-    employee_id: Mapped[Integer] = mapped_column(ForeignKey("employees.id"))
-    employee: Mapped["EmployeeOrm"] = relationship(back_populates="reservations")
+    employee_id: Mapped[Integer] = mapped_column(
+        ForeignKey("employees.id"), nullable=True
+    )
     status: Mapped[ReservationStatus] = mapped_column(
         nullable=False, default=ReservationStatus.FREE
     )
@@ -57,9 +58,6 @@ class EmployeeOrm(Base):
     __tablename__ = "employees"
 
     id: Mapped[Integer] = mapped_column(Integer, primary_key=True, index=True)
-    reservations: Mapped[list["ReservationOrm"]] = relationship(
-        back_populates="employee"
-    )
     first_name: Mapped[String] = mapped_column(
         String, unique=True, index=True, nullable=False
     )

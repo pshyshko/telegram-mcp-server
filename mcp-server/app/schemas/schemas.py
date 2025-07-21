@@ -37,7 +37,6 @@ class EmployeeUpdate(BaseModel):
 
 class EmployeeOut(EmployeeBase):
     id: int = Field(..., description="Unique identifier for the employee")
-    reservation_id: int = Field(..., description="The ID of the parent reservation")
     created_at: datetime = Field(..., description="Timestamp of employee creation")
     updated_at: datetime = Field(..., description="Timestamp of last employee update")
 
