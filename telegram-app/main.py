@@ -6,7 +6,7 @@ from telegram.ext import (
     ContextTypes,
     filters,
 )
-from smolagents import LiteLLMModel, CodeAgent, ToolCollection
+from smolagents import LiteLLMModel, CodeAgent, ToolCollection, TOOL_CALLING_SYSTEM_PROMPT
 import os
 
 model = LiteLLMModel(model_id="ollama_chat/qwen3:14b")
