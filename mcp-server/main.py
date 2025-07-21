@@ -34,7 +34,7 @@ def get_all_free_reservations() -> str:
 
     output = ""
     for reservation in reservations:
-        text_format = f"ID: {reservation.id} time {reservation.reservation_time}\n"
+        text_format = f"reservation id: {reservation.id} at time {reservation.reservation_time}\n"
         output += text_format
 
     return output
@@ -61,7 +61,7 @@ def make_free_reservation(reservation_time: datetime) -> str:
         session.commit()
         session.refresh(new_reservation)
 
-    return f"Reservation id={str(new_reservation.id)}"
+    return f"New reservation created with ID: {str(new_reservation.id)} at {str(new_reservation.reservation_time)}"
 
 
 @mcp.tool()
@@ -97,7 +97,7 @@ def reserve_reservation(
         reservations.status = ReservationStatus.CONFIRMED
         session.commit()
 
-    return "Success reservation"
+    return "Reservation susseccsfully confirmed"
 
 
 if __name__ == "__main__":

@@ -6,7 +6,11 @@ from telegram.ext import (
     ContextTypes,
     filters,
 )
-from smolagents import LiteLLMModel, CodeAgent, ToolCollection, TOOL_CALLING_SYSTEM_PROMPT
+from smolagents import (
+    LiteLLMModel,
+    CodeAgent,
+    ToolCollection,
+)
 import os
 
 model = LiteLLMModel(model_id="ollama_chat/qwen3:14b")
@@ -32,6 +36,7 @@ async def message_reponses(update: Update, context: ContextTypes.DEFAULT_TYPE):
             add_base_tools=True,
             model=model,
             additional_authorized_imports=["json"],
+            max_steps=10,
         )
         response = agent.run(extra_system_prompt + user_message)
 
