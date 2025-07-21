@@ -1,5 +1,9 @@
 from mcp.server.fastmcp import FastMCP
-from app.database.database import get_database_session, create_database, register_fixtures
+from app.database.database import (
+    get_database_session,
+    create_database,
+    register_fixtures,
+)
 from app.database.models import ReservationOrm, ReservationStatus
 from datetime import datetime
 from app.database.models import Base
@@ -10,6 +14,7 @@ mcp = FastMCP(
     port=8050,
     stateless_http=True,
 )
+
 
 @mcp.tool()
 def get_all_free_reservations() -> str:
@@ -94,7 +99,8 @@ def reserve_reservation(
 
     return "Success reservation"
 
+
 if __name__ == "__main__":
-    create_database(Base) 
+    create_database(Base)
     register_fixtures()
     mcp.run(transport="streamable-http")
