@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "nest-asyncio>=1.6.0",
     "python-telegram-bot>=22.2",
     "smolagents[litellm,mcp,toolkit]>=1.20.0",
 ]

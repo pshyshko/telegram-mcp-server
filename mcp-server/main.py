@@ -5,7 +5,7 @@ from datetime import datetime
 from app.database.models import Base
 
 mcp = FastMCP(
-    name="Telegram Agents",
+    name="Telegram agents",
     host="0.0.0.0",
     port=8050,
     stateless_http=True,
